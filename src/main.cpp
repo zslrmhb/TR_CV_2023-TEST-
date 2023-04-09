@@ -19,8 +19,8 @@ int main(int argc, char** argv) {
     std::string img_dir;
 
     YOLO detector;
-//    Camera camera;
-//    camera.init();
+    Camera camera;
+    camera.init();
 
     if (!detector.parse_args(argc, argv, wts_name, engine_name, is_p6, gd, gw, img_dir)) {
         std::cerr << "arguments not right!" << std::endl;
@@ -71,7 +71,7 @@ int main(int argc, char** argv) {
     while (true) {
         cv::Mat img;
         std::vector<cv::Mat> img_batch;
-//        camera.getImage(img);
+        camera.getImage(img);
         bool bSuccess = cap.read(img); // read a new img from video
 
         //Breaking the while loop if the frames cannot be captured
